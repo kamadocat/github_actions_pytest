@@ -20,7 +20,13 @@ jobs:
       - name: install pytest
         run: pip3 install pytest
       - name: set PYTHONPATH
-        run: export PYTHONPATH=$PYTHONPATH:${{ github.workspace }}
+        run: |
+          PYTHONPATH=$PYTHONPATH:${{ github.workspace }}
+          echo $PYTHONPATH >> $GITHUB_PATH
       - name: run pytest
-        run: pwd && cd ${{ github.workspace }} && pwd && pytest tests
+        run: |
+          pwd
+          cd ${{ github.workspace }}
+          pwd
+          pytest tests
 

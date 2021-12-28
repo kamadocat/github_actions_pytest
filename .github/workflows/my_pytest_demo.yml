@@ -18,7 +18,7 @@ jobs:
       - name: python set up ${{ matrix.python-version }}
         uses: actions/setup-python@v1
       - name: install pytest
-        run: pip3 pytest
+        run: pip3 install pytest
       - name: set PYTHONPATH
         run: export PYTHONPATH=$PYTHONPATH:${{ github.workspace }}
       - name: run pytest
